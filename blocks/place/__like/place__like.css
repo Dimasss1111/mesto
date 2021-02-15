@@ -1,0 +1,7 @@
+.place__like{
+
+}
+
+.place__like:hover{
+  opacity: .5;
+}
