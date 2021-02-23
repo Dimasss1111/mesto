@@ -1,0 +1,27 @@
+.person__add-place-button{
+  padding: 0;
+  margin-left: 230px;
+  background-color: rgba(0, 0, 0, 0);
+  max-width: 150px;
+  max-height: 50px;
+  border: 2px solid #FFFFFF;
+  box-sizing: border-box;
+  border-radius: 2px;
+}
+
+.person__add-place-button:hover{
+  opacity: .6;
+  cursor: pointer;
+}
+
+.person__add-place-button:active{
+  border: none;
+  outline:none;
+}
+
+@media screen and (max-width: 1279px) {
+  .person__add-place-button{
+    margin: 0;
+    max-width: 282px;
+  }
+}

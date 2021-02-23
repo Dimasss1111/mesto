@@ -9,10 +9,11 @@
   margin-bottom: 37px;
   margin-left: 36px;
   margin-right: 36px;
-  padding: 18px 124px 18px 125px;
+  padding: 14px 131.85px 18px;
   font-size: 18px;
   line-height: 22px;
   text-align: center;
+  outline: none;
 }
 
 .popup__addbutton:hover{

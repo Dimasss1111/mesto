@@ -1,8 +1,10 @@
 .popup__close-icon{
-  max-width: 40px;
-  max-height: 40px;
-  margin-top: 146px;
-  margin-left: 66vw;
+  max-width: 56.56px;
+  max-height: 56.56px;
+  margin: 0;
+  position: absolute;
+  top: 146px;
+  left: calc(50vw + 206.72px);
 }
 
 .popup__close-icon:hover{
@@ -12,14 +14,9 @@
 
 @media screen and (max-width: 768px){
   .popup__close-icon{
-    margin-left: 82.5vw;
-    margin-top: 22.5vw;
-  }
-}
-
-@media screen and (max-width: 320px){
-  .popup__close-icon{
-    margin-top: -20px;
-    margin-left: 264px;
+    top: 72.62px;
+    left: calc(50vw + 104.24px);
+    max-width: 36.76px;
+    max-height: 36.76px;
   }
 }

@@ -1,4 +1,6 @@
-.popup__text{
+.popup__input{
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
   margin: 0;
   max-width: 358px;
   margin-left: 36px;
@@ -9,13 +11,14 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  color: black;
+  font-size: 14px;
+  line-height: 17px;
 }
 
 @media screen and (max-width: 768px){
-  .popup__text{
+  .popup__input{
     margin: 0 auto 30px;
-    font-size: 14px;
-    line-height: 17px;
   }
 }
 

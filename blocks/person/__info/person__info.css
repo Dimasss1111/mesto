@@ -6,7 +6,7 @@
   justify-content: center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1279px) {
   .person__info{
     text-align: center;
   }
