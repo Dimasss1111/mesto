@@ -2,17 +2,17 @@
 let popup = document.querySelector('.popup')
 let popupActive = document.querySelector('.person__edit-button');
 
-function popupOpen (){
-  popup.classList.add('popup_opened');
-  personName.value = pagePersonName.textContent;
-  personMerit.value = pagePersonMerit.textContent;
+function popupOpen() {
+	popup.classList.add('popup_opened');
+	personName.value = pagePersonName.textContent;
+	personMerit.value = pagePersonMerit.textContent;
 };
 
 popupActive.addEventListener('click', popupOpen);
 
 // Закрытие попапа
-function popupClose (){
-  popup.classList.remove('popup_opened');
+function popupClose() {
+	popup.classList.remove('popup_opened');
 }
 
 let popupDisabled = document.querySelector('.popup__close-icon-button');
@@ -27,12 +27,13 @@ let personMerit = document.querySelector('.popup__input_merits');//в попап
 let pagePersonMerit = document.querySelector('.person__merits');
 
 
-let saveButton = document.querySelector('.popup__addbutton');
+// let saveButton = document.querySelector('.popup__addbutton');
+let saveButton = document.getElementById('js-post');
 
-function submitEditProfile (evt) {
-  evt.preventDefault();
-  pagePersonName.textContent = personName.value;
-  pagePersonMerit.textContent = personMerit.value;
+function submitEditProfile(evt) {
+	evt.preventDefault();
+	pagePersonName.textContent = personName.value;
+	pagePersonMerit.textContent = personMerit.value;
 };
 
 saveButton.addEventListener('submit', submitEditProfile);
