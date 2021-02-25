@@ -21,19 +21,20 @@ popupDisabled.addEventListener('click', popupClose);
 
 
 // Редактирование профиля
-let personName = document.querySelector('.popup__input_person');// в попапе
+let personName = document.querySelector('.popup__field_input_person');// в попапе
 let pagePersonName = document.querySelector('.person__name');
-let personMerit = document.querySelector('.popup__input_merits');//в попапе
+let personMerit = document.querySelector('.popup__field_input_merits');//в попапе
 let pagePersonMerit = document.querySelector('.person__merits');
 
 
-// let saveButton = document.querySelector('.popup__addbutton');
-let saveButton = document.getElementById('js-post');
+
+let popupForm = document.querySelector('.popup__form');
 
 function submitEditProfile(evt) {
 	evt.preventDefault();
+  popupClose();
 	pagePersonName.textContent = personName.value;
 	pagePersonMerit.textContent = personMerit.value;
 };
 
-saveButton.addEventListener('submit', submitEditProfile);
+popupForm.addEventListener('submit', submitEditProfile);

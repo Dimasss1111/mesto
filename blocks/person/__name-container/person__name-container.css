@@ -1,11 +1,11 @@
-.person__first-line{
+.person__name-container{
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
 @media screen and(max-width: 768px){
-  .person__first-line{
+  .person__name-container{
     margin-top: 22px;
   }
 }

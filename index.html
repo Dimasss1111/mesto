@@ -17,7 +17,7 @@
 		<section class="person">
 			<img src="./images/Custo.png" class="person__photo" alt="Жак-Ив Кусто">
 			<div class="person__info">
-				<div class="person__first-line">
+				<div class="person__name-container">
 					<h1 class="person__name">Жак-Ив Кусто</h1>
 					<button class="person__edit-button" type="button">
 						<img src="./images/edit.svg" class="person__edit" alt="Правка сведений">
@@ -93,11 +93,11 @@
 			<img src="./images/сloseIcon.svg" class="popup__close-icon" alt="Иконка закрытия">
 		</button>
 
-		<form id='js-post' name="editPersonProfile">
+		<form name="editPersonProfile" class="popup__form">
 			<div class="popup__container">
 				<h2 class="popup__title">Редактировать профиль</h2>
-				<input type="text" name="personName" form="editPersonProfile" class="popup__input popup__input_person">
-				<input type="text" name="personMerits" form="editPersonProfile" class="popup__input popup__input_merits">
+				<input type="text" name="personName" form="editPersonProfile" class="popup__field popup__field_input_person">
+				<input type="text" name="personMerits" form="editPersonProfile" class="popup__field popup__field_input_merits">
 				<button type="submit" class="popup__addbutton">Сохранить</button>
 			</div>
 		</form>
