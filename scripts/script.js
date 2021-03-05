@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 //Вставка картинок
 const initialCards = [
   {
@@ -38,11 +37,7 @@ initialCards.forEach(function(item){
     </div>`)
 })
 
-=======
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
 // Открытие попапа
-=======
 //Вставка картинок
 const initialCards = [
   {
@@ -85,7 +80,6 @@ initialCards.forEach(function(item){
 
 
 // Открытие попапа УЧЕНОГО
->>>>>>> Stashed changes
 let popup = document.querySelector('.popup')
 let popupActive = document.querySelector('.person__edit-button');
 
