@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 //Вставка картинок
 const initialCards = [
   {
@@ -37,7 +38,54 @@ initialCards.forEach(function(item){
     </div>`)
 })
 
+=======
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
 // Открытие попапа
+=======
+//Вставка картинок
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+]; 
+let places = document.querySelector('.places');
+initialCards.forEach(function(item){
+  places.insertAdjacentHTML('beforeend',
+    `<div class="place">
+      <img src=${item.link} class="place__photo" alt=${item.name}>
+      <div class="place__info">
+        <h2 class="place__name">${item.name}</h2>
+        <img src="./images/like.svg" class="place__like" alt="лайк">
+      </div>
+    </div>`)
+})
+
+
+
+// Открытие попапа УЧЕНОГО
+>>>>>>> Stashed changes
 let popup = document.querySelector('.popup')
 let popupActive = document.querySelector('.person__edit-button');
 
@@ -49,7 +97,8 @@ function popupOpen (){
 
 popupActive.addEventListener('click', popupOpen);
 
-// Закрытие попапа
+
+// Закрытие попапа УЧЕНОГО
 function popupClose (){
   popup.classList.remove('popup_opened');
 }
@@ -58,8 +107,7 @@ let popupDisabled = document.querySelector('.popup__close-icon-button');
 
 popupDisabled.addEventListener('click', popupClose);
 
-
-// Редактирование профиля
+// Редактирование профиля УЧЕНОГО
 let personName = document.querySelector('.popup__input_person');// в попапе
 let pagePersonName = document.querySelector('.person__name');
 let personMerit = document.querySelector('.popup__input_merits');//в попапе
@@ -75,3 +123,8 @@ function submitEditProfile (evt) {
 };
 
 saveButton.addEventListener('submit', submitEditProfile);
+
+
+
+//Открытие попапа ЛОКАЦИИ
+let place = document.querySelector('.place');
