@@ -36,13 +36,13 @@ initialCards.forEach(function(item){
         <img src="./images/like.svg" class="place__like" alt="лайк">
       </div>
     </div>`)
-})
+});
 
 
 
 // Открытие попапа УЧЕНОГО
 let popup = document.querySelector('.popup')
-let popupActive = document.querySelector('.person__edit-button');
+let popupPersonActive = document.querySelector('.person__edit-button');
 
 function popupOpen (){
   popup.classList.add('popup_opened');
@@ -50,7 +50,7 @@ function popupOpen (){
   personMerit.value = pagePersonMerit.textContent;
 };
 
-popupActive.addEventListener('click', popupOpen);
+popupPersonActive.addEventListener('click', popupOpen);
 
 
 // Закрытие попапа УЧЕНОГО
@@ -58,9 +58,9 @@ function popupClose (){
   popup.classList.remove('popup_opened');
 }
 
-let popupDisabled = document.querySelector('.popup__close-icon-button');
+let popupPersonDisabled = document.querySelector('.popup__close-icon-button');
 
-popupDisabled.addEventListener('click', popupClose);
+popupPersonDisabled.addEventListener('click', popupClose);
 
 // Редактирование профиля УЧЕНОГО
 let personName = document.querySelector('.popup__input_person');// в попапе
@@ -83,3 +83,12 @@ saveButton.addEventListener('submit', submitEditProfile);
 
 //Открытие попапа ЛОКАЦИИ
 let place = document.querySelector('.place');
+
+document.addEventListener('click',function(event){
+  event.preventDefault();
+  console.log(event.target);
+  let evTar = event.target;
+  console.log(evTar.classList);
+  evTar.classList.add('popup_opened');
+  console.log(evTar.classList);
+})

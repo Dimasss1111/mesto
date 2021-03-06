@@ -17,7 +17,7 @@
       <div class="person__info">
         <div class="person__first-line">
           <h1 class="person__name">Жак-Ив Кусто</h1>
-          <button class="person__edit-button" type="button">
+          <button class="person__button_edit" type="button">
             <img src="./images/edit.svg" class="person__edit" alt="Правка сведений">
           </button>
         </div>  
@@ -100,6 +100,7 @@
       </div>  
     </form>
   </div>
+
   <div class="popup">
     
     <button class="popup__close-icon-button" type="button">
@@ -109,8 +110,8 @@
     <form name="editPlaceList">
       <div class="popup__container">
         <h2 class="popup__title">Новое место</h2>
-        <input type="text" name="placeName" form="editPlaceList" class="popup__input popup__input_person">
-        <input type="text" name="placeLink" form="editPlaceList" class="popup__input popup__input_merits">
+        <input type="text" name="placeName" form="editPlaceList" class="popup__input popup__input_place">
+        <input type="text" name="placeLink" form="editPlaceList" class="popup__input popup__input_link">
         <button type="submit" class="popup__addbutton">Сохранить</button>
       </div>  
     </form>
