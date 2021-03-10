@@ -1,0 +1,8 @@
+.popup__big-picture-align{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: min-content;
+  margin: auto;
+  position: relative;
+}

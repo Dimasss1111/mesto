@@ -3,7 +3,7 @@
   max-height: 56.56px;
   margin: 0;
   position: absolute;
-  top: 146px;
+  top: calc(50vh - 212px);
   left: calc(50vw + 206.72px);
 }
 
@@ -14,7 +14,7 @@
 
 @media screen and (max-width: 768px){
   .popup__close-icon{
-    top: 72.62px;
+    top: calc(50vh - 211.38px);
     left: calc(50vw + 104.24px);
     max-width: 36.76px;
     max-height: 36.76px;

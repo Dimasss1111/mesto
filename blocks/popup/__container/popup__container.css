@@ -1,6 +1,6 @@
 .popup__container{
   position: absolute;
-  top: 195px;
+  top: calc(50vh - 165px);
   left: calc(50vw - 215px);
   display: flex;
   max-width: 430px;
@@ -17,7 +17,7 @@
   .popup__container{
     max-width: 282px;
     max-height: 322px;
-    top: 123px;
+    top: calc(50vh - 161px);
     left: calc(50vw - 141px);
   }
 }

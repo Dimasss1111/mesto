@@ -1,0 +1,7 @@
+.popup__close-icon_big-picture{
+  position: absolute;
+  object-fit: contain;
+  top: -50px;
+  right: -50px;
+  left: auto;  
+}

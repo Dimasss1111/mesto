@@ -1,11 +1,11 @@
-.person__add-place{
+.person__add-place-logo{
   padding: 10.5px 62px;
  
   max-width: 150px;
 }
 
 @media screen and (max-width: 1279px) {
-  .person__add-place{
+  .person__add-place-logo{
     margin: 0;
     padding: 10.5px 128px;
     max-width: 282px;
