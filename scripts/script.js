@@ -147,8 +147,8 @@ popupCloseButtonArr.forEach(searchClickPopupClose);
 //Добавление карточек
 function addCard(evt){
   evt.preventDefault();
-  const inputNameForm = placeForm.querySelector('.popup__input_place');
-  const inputLinkForm = placeForm.querySelector('.popup__input_link');
+  const inputNameForm = placeForm.querySelector('.popup__field_input_place');
+  const inputLinkForm = placeForm.querySelector('.popup__field_input_link');
   const inputName = inputNameForm.value;
   const inputLink = inputLinkForm.value;
   const newPlace = createPlaceDomNode(inputName, inputLink);
