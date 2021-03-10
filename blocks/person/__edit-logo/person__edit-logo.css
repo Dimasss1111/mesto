@@ -1,0 +1,13 @@
+.person__edit-logo{ 
+  padding: 7px;
+} 
+ 
+ 
+ 
+@media screen and (max-width: 768px) { 
+  .person__edit-logo{ 
+    padding: 5.25px;
+    max-width: 18px; 
+    max-height: 18px; 
+  } 
+}

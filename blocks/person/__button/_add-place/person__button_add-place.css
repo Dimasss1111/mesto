@@ -1,4 +1,4 @@
-.person__add-place-button{
+.person__button_add-place{
   padding: 0;
   margin-left: auto;
   background-color: rgba(0, 0, 0, 0);
@@ -9,18 +9,18 @@
   border-radius: 2px;
 }
 
-.person__add-place-button:hover{
+.person__button_add-place:hover{
   opacity: .6;
   cursor: pointer;
 }
 
-.person__add-place-button:active{
+.person__button_add-place:active{
   border: none;
   outline:none;
 }
 
 @media screen and (max-width: 1279px) {
-  .person__add-place-button{
+  .person__button_add-place{
     margin: 0;
     max-width: 282px;
   }
