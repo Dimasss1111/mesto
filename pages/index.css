@@ -25,6 +25,7 @@
 @import url(../blocks/person/__photo/person__photo.css);
 
 @import url(../blocks/place/place.css);
+@import url(../blocks/place/__remove/place__remove.css);
 @import url(../blocks/place/__info/place__info.css);
 @import url(../blocks/place/__like/place__like.css);
 @import url(../blocks/place/__like/_active/place__like_active.css);
@@ -35,13 +36,18 @@
 
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__addbutton/popup__addbutton.css);
+@import url(../blocks/popup/__big-picture-align/popup__big-picture-align.css);
+@import url(../blocks/popup/__big-picture/popup__big-picture.css);
 @import url(../blocks/popup/__close-icon-button/popup__close-icon-button.css);
 @import url(../blocks/popup/__close-icon/popup__close-icon.css);
+@import url(../blocks/popup/__close-icon/_big-picture/popup__close-icon_big-picture.css);
 @import url(../blocks/popup/__container/popup__container.css);
-@import url(../blocks/popup/__input/popup__input.css);
-@import url(../blocks/popup/__input/_link/popup__input_link.css);
-@import url(../blocks/popup/__input/_merits/popup__input_merits.css);
-@import url(../blocks/popup/__input/_person/popup__input_person.css);
-@import url(../blocks/popup/__input/_place/popup__input_place.css);
+@import url(../blocks/popup/__field/popup__field.css);
+@import url(../blocks/popup/__field/_input/_link/popup__field_input_link.css);
+@import url(../blocks/popup/__field/_input/_merits/popup__field_input_merits.css);
+@import url(../blocks/popup/__field/_input/_person/popup__field_input_person.css);
+@import url(../blocks/popup/__field/_input/_place/popup__field_input_place.css);
 @import url(../blocks/popup/__title/popup__title.css);
+@import url(../blocks/popup/__title/_big-picture/popup__title_big-picture.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
+@import url(../blocks/popup/_opened/_big-picture/popup_opened_big-picture.css);
