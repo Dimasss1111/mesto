@@ -102,6 +102,45 @@
 		</form>
 	</div>
 
+  <div class='popup'>
+
+    <button class='popup__close-icon-button' type='button'>
+      <img src='./images/сloseIcon.svg' class='popup__close-icon' alt='Иконка закрытия'>
+    </button>  
+
+    <form name='editPlaceList' class='popup__form popup__form_addPlaceList'>
+      <div class='popup__container'>
+        <h2 class='popup__title'>Новое место</h2>
+        <input type='text' name='placeName' form='editPlaceList' class='popup__field popup__field_input_place'>
+        <input type='text' name='placeLink' form='editPlaceList' class='popup__field popup__field_input_link'>
+        <button type='submit' class='popup__addbutton'>Сохранить</button>
+      </div>  
+    </form>
+  </div>
+
+  <div class='popup'>
+    <div class='popup__big-picture-align'>
+      <button class='popup__close-icon-button' type='button'>
+        <img src='./images/сloseIcon.svg' class='popup__close-icon popup__close-icon_big-picture' alt='Иконка закрытия'>
+      </button>
+      <img src='' class='popup__big-picture' alt=''>
+      <h2 class='popup__title_big-picture'></h2>
+    </div>
+  </div>
+
+
+
+  <template class='template__place'>
+    <div class='place'>
+      <img src='./images/place_remove.svg' class="place__remove" alt='Удалить место'>
+      <img src='' class='place__photo' alt=''>
+      <div class='place__info'>
+        <h2 class='place__name'></h2>
+        <img src='./images/like.svg' class='place__like' alt='лайк'>
+      </div>
+    </div>
+  </template>
+
 	<script src="./scripts/script.js"></script>
 </body>
 </html>
