@@ -1,13 +1,13 @@
 .person__button_edit{
-  padding: 0; 
-  max-width: 24px; 
-  max-height: 24px; 
-  background-color: rgba(0, 0, 0, 0); 
-  margin-left: 18px; 
-  border: 1px solid #FFFFFF; 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
+  padding: 0;
+  max-width: 24px;
+  max-height: 24px;
+  background-color: rgba(0, 0, 0, 0);
+  margin-left: 18px;
+  border: 1px solid #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .person__button_edit:hover{
@@ -21,8 +21,8 @@
 
 @media screen and (max-width: 768px) {
   .person__button_edit{
-    max-width: 18px; 
-    max-height: 18px; 
-    margin-left: 10px; 
+    max-width: 18px;
+    max-height: 18px;
+    margin-left: 10px;
   }
 }

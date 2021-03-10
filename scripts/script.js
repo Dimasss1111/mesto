@@ -79,7 +79,6 @@ function addCardListeners(card){
 }
 
 
-
 //Отрисовка карточек
 function createPlaceDomNode(name, link){
   const newPlace = templatePlace.content.cloneNode(true);
