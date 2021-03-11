@@ -1,5 +1,7 @@
+
 .popup__close-icon {
   max-width: 56.56px;
+
   max-height: 56.56px;
   margin: 0;
   position: absolute;
@@ -16,7 +18,7 @@
   .popup__close-icon{
     top: calc(50vh - 211.38px);
     left: calc(50vw + 104.24px);
-    max-width: 36.76px;
+    max-width: 282px;
     max-height: 36.76px;
   }
 }

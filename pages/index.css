@@ -35,6 +35,7 @@
 @import url(../blocks/places/places.css);
 
 @import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/__form/popup__form.css);
 @import url(../blocks/popup/__addbutton/popup__addbutton.css);
 @import url(../blocks/popup/__big-picture-align/popup__big-picture-align.css);
 @import url(../blocks/popup/__big-picture/popup__big-picture.css);
