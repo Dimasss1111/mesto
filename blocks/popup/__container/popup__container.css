@@ -1,10 +1,19 @@
+<<<<<<< HEAD
 .popup__container {
+=======
+.popup__container{
+<<<<<<< HEAD
+  /*position: absolute;
+  top: 195px;
+  left: calc(50vw - 215px);*/
+=======
+>>>>>>> 905174c012f5025e48e9a4084cd9cb3fb1487bdc
   position: absolute;
   top: calc(50vh - 165px);
   left: calc(50vw - 215px);
+>>>>>>> develop
   display: flex;
   max-width: 430px;
-  max-height: 330px;
   flex-direction: column;
   border-radius: 10px;
   background-color: white;
@@ -16,8 +25,13 @@
 @media screen and (max-width: 768px){
   .popup__container{
     max-width: 282px;
+<<<<<<< HEAD
+    /*top: 123px;
+    left: calc(50vw - 141px);*/
+=======
     max-height: 322px;
     top: calc(50vh - 161px);
     left: calc(50vw - 141px);
+>>>>>>> develop
   }
 }
