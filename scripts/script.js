@@ -48,7 +48,7 @@ function openBigPicture(evt){
   const placeTitle = openedPlace.querySelector('.place__name');
   const placePhoto = openedPlace.querySelector('.place__photo');
   const popupPhoto = document.querySelector('.popup__big-picture');
-  const popupTitle = document.querySelector('.popup__title_big-picture');
+  const popupTitle = document.querySelector('.popup__big-picture-title');
   const openPopupPic = popupTitle.closest('.popup');
   popupTitle.textContent = placeTitle.textContent;
   popupPhoto.src = placePhoto.src;
