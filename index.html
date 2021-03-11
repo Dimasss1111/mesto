@@ -112,8 +112,8 @@
     <form name='editPlaceList' class='popup__form popup__form_addPlaceList'>
       <div class='popup__container'>
         <h2 class='popup__title'>Новое место</h2>
-        <input type='text' name='placeName' form='editPlaceList' class='popup__field popup__field_input_place'>
-        <input type='text' name='placeLink' form='editPlaceList' class='popup__field popup__field_input_link'>
+        <input type='text' name='placeName' form='editPlaceList' class='popup__field popup__field_input_place' placeholder='Название'>
+        <input type='text' name='placeLink' form='editPlaceList' class='popup__field popup__field_input_link' placeholder='Ссылка на картинку'>
         <button type='submit' class='popup__addbutton'>Сохранить</button>
       </div>  
     </form>
@@ -124,7 +124,7 @@
       <button class='popup__close-icon-button' type='button'>
         <img src='./images/сloseIcon.svg' class='popup__close-icon popup__close-icon_big-picture' alt='Иконка закрытия'>
       </button>
-      <img src='a' class='popup__big-picture' alt='a'>
+      <img src='https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg' class='popup__big-picture' alt='Байкал'>
       <h2 class='popup__big-picture-title'></h2>
     </div>
   </div>
@@ -134,7 +134,7 @@
   <template class='template__place'>
     <div class='place'>
       <img src='./images/place_remove.svg' class="place__remove" alt='Удалить место'>
-      <img src='a' class='place__photo' alt='a'>
+      <img src='https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg' class='place__photo' alt='Байкал'>
       <div class='place__info'>
         <h2 class='place__name'></h2>
         <img src='./images/like.svg' class='place__like' alt='лайк'>
