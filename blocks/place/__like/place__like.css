@@ -1,5 +1,11 @@
 .place__like{
-
+  min-width: 21px;
+  min-height: 19px;
+  background-image: url(../../../images/like.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  background-size: contain;
 }
 
 .place__like:hover{

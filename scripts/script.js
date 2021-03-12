@@ -1,54 +1,25 @@
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-]; 
-
 
 const container = document.querySelector('.places');
 const placeForm = document.querySelector('.popup__form_addPlaceList');
 const templatePlace = document.querySelector('.template__place');
 
-//Переключение лайка
+//Переключение лайка 
+
 function switchLike(evt){
   const target = evt.target;
-  if (target.getAttribute('src') == './images/like.svg'){
-    target.setAttribute('src','./images/like_active.svg');
-  }
-  else {
-    target.setAttribute('src','./images/like.svg');
-  }
+  target.classList.toggle('place__like_active')
 }
 
+
 //Большая картинка
+  const popupPhoto = document.querySelector('.popup__big-picture');
+  const popupTitle = document.querySelector('.popup__big-picture-title');
+
 function openBigPicture(evt){
   const target = evt.target;
   const openedPlace = target.closest('.place');
   const placeTitle = openedPlace.querySelector('.place__name');
   const placePhoto = openedPlace.querySelector('.place__photo');
-  const popupPhoto = document.querySelector('.popup__big-picture');
-  const popupTitle = document.querySelector('.popup__big-picture-title');
   const openPopupPic = popupTitle.closest('.popup');
   popupTitle.textContent = placeTitle.textContent;
   popupPhoto.src = placePhoto.src;
@@ -90,16 +61,14 @@ function createPlaceDomNode(name, link){
   return newPlace;
 }
 
-function createPlaceArguments(item){
-  const nameArg = item.name;
-  const linkArg = item.link;
-  const newPlaceElement = createPlaceDomNode(nameArg, linkArg);
-  addCardListeners(newPlaceElement);
-  return newPlaceElement;
-}
-
 function renderPlaces(){
-  const result = initialCards.map(createPlaceArguments);
+  const result = initialCards.map(function(item){
+    const nameArg = item.name;
+    const linkArg = item.link;
+    const newPlaceElement = createPlaceDomNode(nameArg, linkArg);
+    addCardListeners(newPlaceElement);
+    return newPlaceElement;
+  });
   container.append(...result);
 }
 
@@ -107,36 +76,46 @@ renderPlaces();
 
 
 //Открытие попапов
-const openPopupPerson = document.querySelector('.person__edit-logo');
-const openPopupPlace = document.querySelector('.person__add-place-logo');
-const popupPersonChildren = document.querySelector('.popup__form_editPersonProfile');
-const popupPerson = popupPersonChildren.closest('.popup');
-const popupPlaceChildren = document.querySelector('.popup__form_addPlaceList');
-const popupPlace = popupPlaceChildren.closest('.popup');
 
-openPopupPerson.addEventListener('click', function(){
-  popupPerson.classList.add('popup_opened');
+const popupOpenButton = document.querySelectorAll('.person__button');
+const popupOpenButtonArr = Array.from(popupOpenButton);
+
+function openPopup(element){
+  element.classList.add('popup_opened');
   personName.value = pagePersonName.textContent;
   personMerits.value = pagePersonMerits.textContent;
-});
-openPopupPlace.addEventListener('click', ()=> {popupPlace.classList.add('popup_opened')});
+}
+
+function searchElementPopupOpen(evt) {
+  const target = evt.target;
+  const pseudoClass = target.id;
+  const searchElement = document.querySelector('.'+ pseudoClass);
+  openPopup(searchElement);
+}
+
+function searchClickPopupOpen(item){
+  item.addEventListener('click', searchElementPopupOpen);
+}
+
+popupOpenButtonArr.forEach(searchClickPopupOpen);
+
+
+
+
 
 //Закрытие попапов
 const popupCloseButton = document.querySelectorAll('.popup__close-icon');
 const popupCloseButtonArr = Array.from(popupCloseButton);
 
-function closePopup(element){
-  element.classList.remove('popup_opened');
-}
 
-function searchElementPopupClose(evt){
+function closePopup(evt){
   const closingButton = evt.target;
   const closingPopup = closingButton.closest('.popup');
-  closePopup(closingPopup);
+  closingPopup.classList.remove('popup_opened');
 }
 
 function searchClickPopupClose(item){
-  item.addEventListener('click', searchElementPopupClose);
+  item.addEventListener('click', closePopup);
 }
 
 popupCloseButtonArr.forEach(searchClickPopupClose);
@@ -144,23 +123,24 @@ popupCloseButtonArr.forEach(searchClickPopupClose);
 
 
 //Добавление карточек
-function addCard(evt){
+const inputNameForm = placeForm.querySelector('.popup__field_input_place');
+const inputLinkForm = placeForm.querySelector('.popup__field_input_link');
+
+function submitAddCardForm(evt){
   evt.preventDefault();
-  const inputNameForm = placeForm.querySelector('.popup__field_input_place');
-  const inputLinkForm = placeForm.querySelector('.popup__field_input_link');
   const inputName = inputNameForm.value;
   const inputLink = inputLinkForm.value;
   const newPlace = createPlaceDomNode(inputName, inputLink);
   addCardListeners(newPlace);
   container.prepend(newPlace);
   
-  searchElementPopupClose(evt);//Использую ранее описанную функцию для закрытия формы по кнопке 'Сохранить'
+  closePopup(evt);//Использую ранее описанную функцию для закрытия формы по кнопке 'Сохранить'
   inputNameForm.value = '';
   inputLinkForm.value = '';
 }
 
 
-placeForm.addEventListener('submit', addCard);
+placeForm.addEventListener('submit', submitAddCardForm);
 
 
 //Редактирование профиля
@@ -176,7 +156,6 @@ function submitEditProfile (evt) {
   evt.preventDefault();
   pagePersonName.textContent = personName.value;
   pagePersonMerits.textContent = personMerits.value;
-  console.log(pagePersonName.textContent);
   searchElementPopupClose(evt);//Использую ранее описанную функцию для закрытия формы по кнопке 'Сохранить'
 };
 
