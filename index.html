@@ -17,7 +17,7 @@
 				<div class='person__name-container'>
 					<h1 class='person__name'>Жак-Ив Кусто</h1>
 					<button class='person__button person__button_edit' type='button'>
-						<img src='./images/edit.svg' class='person__edit-logo' alt='Правка сведений'>
+						<img src='./images/edit.svg' class='person__edit-logo' alt='Правка сведений' id='popup_edit-profile'>
 					</button>
 				</div>
 
@@ -25,58 +25,12 @@
 			</div>
 
 			<button class='person__button person__button_add-place' type='button'>
-				<img src='./images/add.svg' class='person__add-place-logo' alt='Добавить место'>
+				<img src='./images/add.svg' class='person__add-place-logo' alt='Добавить место' id='popup_add-card'>
 			</button>
 		</section>
 
 		<section class='places'>
-			<!--<div class='place'>
-				<img src='./images/1.png' class='place__photo' alt='Карачаевск'>
-				<div class='place__info'>
-					<h2 class='place__name'>Карачаевск</h2>
-					<img src='./images/like.svg' class='place__like' alt='лайк'>
-				</div>
-			</div>
 
-			<div class='place'>
-				<img src='./images/2.png' class='place__photo' alt='Гора Эльбрус'>
-				<div class='place__info'>
-					<h2 class='place__name'>Гора Эльбрус</h2>
-					<img src='./images/like.svg' class='place__like' alt='лайк'>
-				</div>
-			</div>
-
-			<div class='place'>
-				<img src='./images/3.png' class='place__photo' alt='Домбай'>
-				<div class='place__info'>
-					<h2 class='place__name'>Домбай</h2>
-					<img src='./images/like.svg' class='place__like' alt='лайк'>
-				</div>
-			</div>
-
-			<div class='place'>
-				<img src='./images/2.png' class='place__photo' alt='Гора Эльбрус'>
-				<div class='place__info'>
-					<h2 class='place__name'>Гора Эльбрус</h2>
-					<img src='./images/like.svg' class='place__like' alt='лайк'>
-				</div>
-			</div>
-
-			<div class='place'>
-				<img src='./images/3.png' class='place__photo' alt='Домбай'>
-				<div class='place__info'>
-					<h2 class='place__name'>Домбай</h2>
-					<img src='./images/like.svg' class='place__like' alt='лайк'>
-				</div>
-			</div>
-
-			<div class='place'>
-				<img src='./images/1.png' class='place__photo' alt='Карачаево-Черкесия'>
-				<div class='place__info'>
-					<h2 class='place__name'>Карачаево-Черкесия</h2>
-					<img src='./images/like.svg' class='place__like' alt='лайк'>
-				</div>
-			</div> -->
 		</section>
 
 	</main>
@@ -87,7 +41,7 @@
 
 
 
-	<div class='popup'>
+	<div class='popup popup_edit-profile'>
 
 		<button class='popup__close-icon-button' type='button'>
 			<img src='./images/сloseIcon.svg' class='popup__close-icon' alt='Иконка закрытия'>
@@ -96,14 +50,14 @@
 		<form name='editPersonProfile' class='popup__form popup__form_editPersonProfile'>
 			<div class='popup__container'>
 				<h2 class='popup__title'>Редактировать профиль</h2>
-				<input type='text' name='personName' form='editPersonProfile' class='popup__field popup__field_input_person'>
-				<input type='text' name='personMerits' form='editPersonProfile' class='popup__field popup__field_input_merits'>
+				<input type='text' name='personName' form='editPersonProfile' class='popup__field popup__field_input_person' placeholder='Имя'>
+				<input type='text' name='personMerits' form='editPersonProfile' class='popup__field popup__field_input_merits' placeholder='Вид деятельности'>
 				<button type='submit' class='popup__addbutton'>Сохранить</button>
 			</div>
 		</form>
 	</div>
 
-  <div class='popup'>
+  <div class='popup popup_add-card'>
 
     <button class='popup__close-icon-button' type='button'>
       <img src='./images/сloseIcon.svg' class='popup__close-icon' alt='Иконка закрытия'>
@@ -119,7 +73,7 @@
     </form>
   </div>
 
-  <div class='popup'>
+  <div class='popup popup_big-picture'>
     <div class='popup__big-picture-align'>
       <button class='popup__close-icon-button' type='button'>
         <img src='./images/сloseIcon.svg' class='popup__close-icon popup__close-icon_big-picture' alt='Иконка закрытия'>
@@ -137,11 +91,12 @@
       <img src='https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg' class='place__photo' alt='Байкал'>
       <div class='place__info'>
         <h2 class='place__name'></h2>
-        <img src='./images/like.svg' class='place__like' alt='лайк'>
+        <div class='place__like'></div>
       </div>
     </div>
   </template>
 
+  <script src="./scripts/initial-cards.js"></script>
 	<script src="./scripts/script.js"></script>
 </body>
 
