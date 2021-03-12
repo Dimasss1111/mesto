@@ -156,7 +156,7 @@ function submitEditProfile (evt) {
   evt.preventDefault();
   pagePersonName.textContent = personName.value;
   pagePersonMerits.textContent = personMerits.value;
-  searchElementPopupClose(evt);//Использую ранее описанную функцию для закрытия формы по кнопке 'Сохранить'
+  closePopup(evt);//Использую ранее описанную функцию для закрытия формы по кнопке 'Сохранить'
 };
 
 popupEditPersonProfile.addEventListener('submit', submitEditProfile);
