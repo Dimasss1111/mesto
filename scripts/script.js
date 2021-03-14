@@ -3,30 +3,21 @@ const container = document.querySelector('.places');
 const placeForm = document.querySelector('.popup__form_addPlaceList');
 const templatePlace = document.querySelector('.template__place');
 
+//Константы Изменения данных профиля
+const popupEditPersonProfile = document.querySelector('.popup__form_editPersonProfile');
+const pagePersonName = document.querySelector('.person__name');
+const pagePersonMerits = document.querySelector('.person__merits');
+const personName = document.querySelector('.popup__field_input_person');
+const personMerits = document.querySelector('.popup__field_input_merits');
+
 //Переключение лайка 
 
 function switchLike(evt){
   const target = evt.target;
-  target.classList.toggle('place__like_active')
+  target.classList.toggle('place__like_active');
 }
 
 
-//Большая картинка
-  const popupPhoto = document.querySelector('.popup__big-picture');
-  const popupTitle = document.querySelector('.popup__big-picture-title');
-
-function openBigPicture(evt){
-  const target = evt.target;
-  const openedPlace = target.closest('.place');
-  const placeTitle = openedPlace.querySelector('.place__name');
-  const placePhoto = openedPlace.querySelector('.place__photo');
-  const openPopupPic = popupTitle.closest('.popup');
-  popupTitle.textContent = placeTitle.textContent;
-  popupPhoto.src = placePhoto.src;
-  popupPhoto.alt = placePhoto.alt;
-  openPopupPic.classList.add('popup_opened');
-  openPopupPic.classList.add('popup_opened_big-picture');
-}
 
 
 //Удаление карточки
@@ -58,6 +49,7 @@ function createPlaceDomNode(name, link){
   headerPlace.textContent = name;
   linkPlace.src = link;
   linkPlace.alt = name;
+  addCardListeners(newPlace);
   return newPlace;
 }
 
@@ -66,7 +58,6 @@ function renderPlaces(){
     const nameArg = item.name;
     const linkArg = item.link;
     const newPlaceElement = createPlaceDomNode(nameArg, linkArg);
-    addCardListeners(newPlaceElement);
     return newPlaceElement;
   });
   container.append(...result);
@@ -77,30 +68,40 @@ renderPlaces();
 
 //Открытие попапов
 
-const popupOpenButton = document.querySelectorAll('.person__button');
-const popupOpenButtonArr = Array.from(popupOpenButton);
+const popupOpenButtonPerson = document.querySelector('.person__edit-logo');
+const popupOpenButtonPlace = document.querySelector('.person__add-place-logo');
+const popupEditProfile = document.querySelector('.popup_edit-profile');
+const popupAddPlace = document.querySelector('.popup_add-card');
 
-function openPopup(element){
-  element.classList.add('popup_opened');
+function openPopup(pop){
+  pop.classList.add('popup_opened');
+};
+
+function openPopupPerson(){
   personName.value = pagePersonName.textContent;
   personMerits.value = pagePersonMerits.textContent;
+  openPopup(popupEditProfile);
 }
+popupOpenButtonPerson.addEventListener('click', openPopupPerson);
+popupOpenButtonPlace.addEventListener('click', function(){
+   openPopup(popupAddPlace);
+});
 
-function searchElementPopupOpen(evt) {
+//Большая картинка
+const popupPhoto = document.querySelector('.popup__big-picture'); 
+const popupTitle = document.querySelector('.popup__big-picture-title'); 
+
+function openBigPicture(evt){
   const target = evt.target;
-  const pseudoClass = target.id;
-  const searchElement = document.querySelector('.'+ pseudoClass);
-  openPopup(searchElement);
-}
-
-function searchClickPopupOpen(item){
-  item.addEventListener('click', searchElementPopupOpen);
-}
-
-popupOpenButtonArr.forEach(searchClickPopupOpen);
-
-
-
+  const openedPlace = target.closest('.place'); 
+  const placeTitle = openedPlace.querySelector('.place__name'); 
+  const placePhoto = openedPlace.querySelector('.place__photo'); 
+  const searchPopupBigPhoto= popupPhoto.closest('.popup');
+  popupTitle.textContent = placeTitle.textContent; 
+  popupPhoto.src = placePhoto.src; 
+  popupPhoto.alt = placePhoto.alt;
+  openPopup(searchPopupBigPhoto)
+} 
 
 
 //Закрытие попапов
@@ -131,7 +132,6 @@ function submitAddCardForm(evt){
   const inputName = inputNameForm.value;
   const inputLink = inputLinkForm.value;
   const newPlace = createPlaceDomNode(inputName, inputLink);
-  addCardListeners(newPlace);
   container.prepend(newPlace);
   
   closePopup(evt);//Использую ранее описанную функцию для закрытия формы по кнопке 'Сохранить'
@@ -146,16 +146,15 @@ placeForm.addEventListener('submit', submitAddCardForm);
 //Редактирование профиля
 
 //Изменение данных профиля
-const popupEditPersonProfile = document.querySelector('.popup__form_editPersonProfile');
-const pagePersonName = document.querySelector('.person__name');
-const pagePersonMerits = document.querySelector('.person__merits');
-const personName = document.querySelector('.popup__field_input_person');
-const personMerits = document.querySelector('.popup__field_input_merits');
+
+
 
 function submitEditProfile (evt) {
   evt.preventDefault();
   pagePersonName.textContent = personName.value;
   pagePersonMerits.textContent = personMerits.value;
+  personName.value = pagePersonName.textContent;
+  personMerits.value = pagePersonMerits.textContent;
   closePopup(evt);//Использую ранее описанную функцию для закрытия формы по кнопке 'Сохранить'
 };
 
