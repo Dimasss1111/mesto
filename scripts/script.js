@@ -88,19 +88,22 @@ popupOpenButtonPlace.addEventListener('click', function(){
 });
 
 //Большая картинка
-const popupPhoto = document.querySelector('.popup__big-picture'); 
-const popupTitle = document.querySelector('.popup__big-picture-title'); 
+const popupPhoto = document.querySelector('.popup__big-picture'); //находим большую картинку
+const searchPopupWithBigPhoto = document.querySelector('.popup_big-picture')//находим попап с большой картинкой
+//Аналогичный результат получим при использовании кода const searchPopupWithBigPhoto = popupPhoto.closest('.popup');
+//Если следовать указаниям в ревью, то получится, что popup_opened присваетвается картинке, а не самому попапу
+const popupTitle = document.querySelector('.popup__big-picture-title');//находим подпись к большой картинке 
 
 function openBigPicture(evt){
   const target = evt.target;
   const openedPlace = target.closest('.place'); 
   const placeTitle = openedPlace.querySelector('.place__name'); 
   const placePhoto = openedPlace.querySelector('.place__photo'); 
-  const searchPopupBigPhoto= popupPhoto.closest('.popup');
+  
   popupTitle.textContent = placeTitle.textContent; 
   popupPhoto.src = placePhoto.src; 
   popupPhoto.alt = placePhoto.alt;
-  openPopup(searchPopupBigPhoto)
+  openPopup(searchPopupWithBigPhoto)
 } 
 
 
@@ -153,8 +156,6 @@ function submitEditProfile (evt) {
   evt.preventDefault();
   pagePersonName.textContent = personName.value;
   pagePersonMerits.textContent = personMerits.value;
-  personName.value = pagePersonName.textContent;
-  personMerits.value = pagePersonMerits.textContent;
   closePopup(evt);//Использую ранее описанную функцию для закрытия формы по кнопке 'Сохранить'
 };
 
