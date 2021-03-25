@@ -54,5 +54,5 @@
 @import url(../blocks/popup/_big-picture/popup_big-picture.css);
 @import url(../blocks/popup/__addbutton/_invalid/popup__addbutton_invalid.css);
 @import url(../blocks/popup/__field/_input/_error/popup__field_input_error.css);
-@import url(../blocks/popup/__field/_span/_error/popup__field_span_error.css);
-@import url(../blocks/popup/__field/_span/_error/_visible/popup__field_span_error_visible.css);
+@import url(../blocks/popup/__span/popup__span.css);
+@import url(../blocks/popup/__span/_visible/popup__span_visible.css);

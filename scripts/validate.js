@@ -20,13 +20,13 @@ const showInputError = (formElement, inputElement) => {
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
   inputElement.classList.add('popup__field_input_error');
   errorElement.textContent = inputElement.validationMessage;
-  errorElement.classList.add('popup__field_span_error_visible');
+  errorElement.classList.add('popup__span_visible');
 };
 
 const hideInputError = (formElement, inputElement) => {
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
   inputElement.classList.remove('popup__field_input_error');
-  errorElement.classList.remove('popup__field_span_error_visible');
+  errorElement.classList.remove('popup__span_visible');
 }
 const checkInput = (formElement, inputElement)=> {
   if (inputElement.validity.valid){
