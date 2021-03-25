@@ -10,6 +10,11 @@ const pagePersonMerits = document.querySelector('.person__merits');
 const personName = document.querySelector('.popup__field_input_person');
 const personMerits = document.querySelector('.popup__field_input_merits');
 
+
+//Для того, чтобы при открытии кнопка сабмита профиля была активна
+personName.value = pagePersonName.textContent;
+personMerits.value = pagePersonMerits.textContent;
+
 //Переключение лайка 
 
 function switchLike(evt){
@@ -91,7 +96,6 @@ popupOpenButtonPlace.addEventListener('click', function(){
 const popupPhoto = document.querySelector('.popup__big-picture'); //находим большую картинку
 const searchPopupWithBigPhoto = document.querySelector('.popup_big-picture')//находим попап с большой картинкой
 //Аналогичный результат получим при использовании кода const searchPopupWithBigPhoto = popupPhoto.closest('.popup');
-//Если следовать указаниям в ревью, то получится, что popup_opened присваетвается картинке, а не самому попапу
 const popupTitle = document.querySelector('.popup__big-picture-title');//находим подпись к большой картинке 
 
 function openBigPicture(evt){
@@ -112,18 +116,19 @@ const popupCloseButton = document.querySelectorAll('.popup__close-icon');
 const popupCloseButtonArr = Array.from(popupCloseButton);
 
 
-function closePopup(evt){
-  const closingButton = evt.target;
-  const closingPopup = closingButton.closest('.popup');
-  closingPopup.classList.remove('popup_opened');
+function closePopup(item){
+  item.classList.remove('popup_opened');
 }
 
-function searchClickPopupClose(item){
-  item.addEventListener('click', closePopup);
+function searchClickPopupClose(evt){
+  const target = evt.target;
+  const popup = target.closest('.popup');
+  return closePopup(popup);
 }
 
-popupCloseButtonArr.forEach(searchClickPopupClose);
-
+popupCloseButtonArr.forEach((item)=>{
+  item.addEventListener('click',searchClickPopupClose)
+});
 
 
 //Добавление карточек
@@ -137,7 +142,7 @@ function submitAddCardForm(evt){
   const newPlace = createPlaceDomNode(inputName, inputLink);
   container.prepend(newPlace);
   
-  closePopup(evt);//Использую ранее описанную функцию для закрытия формы по кнопке 'Сохранить'
+  searchClickPopupClose(evt);//Использую ранее описанную функцию для закрытия формы по кнопке 'Сохранить'
   inputNameForm.value = '';
   inputLinkForm.value = '';
 }
@@ -156,7 +161,33 @@ function submitEditProfile (evt) {
   evt.preventDefault();
   pagePersonName.textContent = personName.value;
   pagePersonMerits.textContent = personMerits.value;
-  closePopup(evt);//Использую ранее описанную функцию для закрытия формы по кнопке 'Сохранить'
+  searchClickPopupClose(evt);//Использую ранее описанную функцию для закрытия формы по кнопке 'Сохранить'
 };
 
 popupEditPersonProfile.addEventListener('submit', submitEditProfile);
+
+//Слушатели Esc и Оверлея для всех попапов
+const popupList = document.querySelectorAll('.popup');
+const popupListArr = Array.from(popupList);
+
+//Закрытие через Esc
+function escClose (evt){
+  if ((evt.key==='Escape')&& (document.querySelector('.popup_opened')!==null)) {
+  const closingPopup = document.querySelector('.popup_opened');
+  
+  closePopup(closingPopup);
+  }
+};
+
+//Закрытие через оверлей
+function overlayClose(evt){
+  const target = evt.target;
+  if (target.classList.contains('popup')){
+    closePopup(target);
+  }
+}
+
+popupListArr.forEach((item)=>{
+  item.addEventListener('click', overlayClose);
+  document.addEventListener('keydown', escClose);
+});
