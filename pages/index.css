@@ -52,7 +52,7 @@
 @import url(../blocks/popup/__big-picture-title/popup__big-picture-title.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/_big-picture/popup_big-picture.css);
-@import url(../blocks/popup/__field/_error/popup__field_error.css);
-@import url(../blocks/popup/__field/_error/_visible/popup__field_error_visible.css);
 @import url(../blocks/popup/__addbutton/_invalid/popup__addbutton_invalid.css);
 @import url(../blocks/popup/__field/_input/_error/popup__field_input_error.css);
+@import url(../blocks/popup/__field/_span/_error/popup__field_span_error.css);
+@import url(../blocks/popup/__field/_span/_error/_visible/popup__field_span_error_visible.css);
