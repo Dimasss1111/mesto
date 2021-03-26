@@ -131,41 +131,6 @@ popupCloseButtonArr.forEach((item)=>{
 });
 
 
-//Добавление карточек
-const inputNameForm = placeForm.querySelector('.popup__field_input_place');
-const inputLinkForm = placeForm.querySelector('.popup__field_input_link');
-
-function submitAddCardForm(evt){
-  evt.preventDefault();
-  const inputName = inputNameForm.value;
-  const inputLink = inputLinkForm.value;
-  const newPlace = createPlaceDomNode(inputName, inputLink);
-  container.prepend(newPlace);
-  
-  searchClickPopupClose(evt);//Использую ранее описанную функцию для закрытия формы по кнопке 'Сохранить'
-  inputNameForm.value = '';
-  inputLinkForm.value = '';
-}
-
-
-placeForm.addEventListener('submit', submitAddCardForm);
-
-
-//Редактирование профиля
-
-//Изменение данных профиля
-
-
-
-function submitEditProfile (evt) {
-  evt.preventDefault();
-  pagePersonName.textContent = personName.value;
-  pagePersonMerits.textContent = personMerits.value;
-  searchClickPopupClose(evt);//Использую ранее описанную функцию для закрытия формы по кнопке 'Сохранить'
-};
-
-popupEditPersonProfile.addEventListener('submit', submitEditProfile);
-
 //Слушатели Esc и Оверлея для всех попапов
 const popupList = document.querySelectorAll('.popup');
 const popupListArr = Array.from(popupList);
@@ -189,5 +154,45 @@ function overlayClose(evt){
 
 popupListArr.forEach((item)=>{
   item.addEventListener('click', overlayClose);
-  document.addEventListener('keydown', escClose);
 });
+
+document.addEventListener('keydown', escClose);
+
+
+//Добавление карточек
+const inputNameForm = placeForm.querySelector('.popup__field_input_place');
+const inputLinkForm = placeForm.querySelector('.popup__field_input_link');
+
+const inputClear = (element)=>{element.value='';}//пробовал сделать через reset, но почему-то поля не очищались, но так тоже подход универсальный
+
+function submitAddCardForm(evt){
+  evt.preventDefault();
+  const inputName = inputNameForm.value;
+  const inputLink = inputLinkForm.value;
+  const newPlace = createPlaceDomNode(inputName, inputLink);
+  container.prepend(newPlace);
+  const targetForm = evt.target.closest('.popup__form');
+  const inputList = Array.from(targetForm.querySelectorAll('.popup__field'));
+  inputList.forEach(inputClear);
+  searchClickPopupClose(evt);//Использую ранее описанную функцию для закрытия формы по кнопке 'Сохранить'
+  
+}
+
+placeForm.addEventListener('submit', submitAddCardForm);
+
+
+//Редактирование профиля
+
+//Изменение данных профиля
+
+
+
+function submitEditProfile (evt) {
+  evt.preventDefault();
+  pagePersonName.textContent = personName.value;
+  pagePersonMerits.textContent = personMerits.value;
+  searchClickPopupClose(evt);//Использую ранее описанную функцию для закрытия формы по кнопке 'Сохранить'
+};
+
+popupEditPersonProfile.addEventListener('submit', submitEditProfile);
+
