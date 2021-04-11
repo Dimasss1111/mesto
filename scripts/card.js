@@ -1,9 +1,9 @@
+import {openPopup} from './index.js';
 export class Card{
   constructor(data, templateSelector){
     this._name = data.name;
     this._link = data.link;
     this._templateSelector = templateSelector;
-    this.data = data;//????
   }
   //Открытие большой картинки
   _openBigPicture(_link, _name){
@@ -28,7 +28,6 @@ export class Card{
     target.classList.toggle('place__like_active');
   }
 
-  // метод возвращения разметки карточки
   _getTemplate() {
     const cardElement = document
     .querySelector(this._templateSelector)
@@ -50,7 +49,6 @@ export class Card{
     });
   }
 
-  // подготовка карточки к публикации
   generateCard() {
     this._element = this._getTemplate();
     this._setEvenetListeners();
