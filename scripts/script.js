@@ -1,3 +1,17 @@
+import {initialCards} from './initial-cards.js';
+import {Card} from './card.js'
+//Константы Изменения данных профиля
+const popupEditPersonProfile = document.querySelector('.popup__form_editPersonProfile');
+const pagePersonName = document.querySelector('.person__name');
+const pagePersonMerits = document.querySelector('.person__merits');
+const personName = document.querySelector('.popup__field_input_person');
+const personMerits = document.querySelector('.popup__field_input_merits');
+const container = document.querySelector('.places');
+const placeForm = document.querySelector('.popup__form_addPlaceList');
+const templatePlace = document.querySelector('.template__place');
+/*
+
+
 
 const container = document.querySelector('.places');
 const placeForm = document.querySelector('.popup__form_addPlaceList');
@@ -69,7 +83,7 @@ function renderPlaces(){
 }
 
 renderPlaces();
-
+*/
 
 //Открытие попапов
 
@@ -92,23 +106,6 @@ popupOpenButtonPlace.addEventListener('click', function(){
    openPopup(popupAddPlace);
 });
 
-//Большая картинка
-const popupPhoto = document.querySelector('.popup__big-picture'); //находим большую картинку
-const searchPopupWithBigPhoto = document.querySelector('.popup_big-picture')//находим попап с большой картинкой
-//Аналогичный результат получим при использовании кода const searchPopupWithBigPhoto = popupPhoto.closest('.popup');
-const popupTitle = document.querySelector('.popup__big-picture-title');//находим подпись к большой картинке 
-
-function openBigPicture(evt){
-  const target = evt.target;
-  const openedPlace = target.closest('.place'); 
-  const placeTitle = openedPlace.querySelector('.place__name'); 
-  const placePhoto = openedPlace.querySelector('.place__photo'); 
-  
-  popupTitle.textContent = placeTitle.textContent; 
-  popupPhoto.src = placePhoto.src; 
-  popupPhoto.alt = placePhoto.alt;
-  openPopup(searchPopupWithBigPhoto)
-} 
 
 
 //Закрытие попапов
@@ -196,3 +193,16 @@ function submitEditProfile (evt) {
 
 popupEditPersonProfile.addEventListener('submit', submitEditProfile);
 
+
+
+const pw = '.template__place';
+// создание карточки с изображением
+function createCard(item, pw){
+  const card = new Card(item, pw)
+  return card.generateCard();
+};
+
+initialCards.forEach((item)=>{
+  const currentCard = createCard(item, pw);
+  container.append(currentCard);
+})
