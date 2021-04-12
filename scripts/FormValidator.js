@@ -50,10 +50,10 @@ export class FormValidator {
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
         this._checkInput(inputElement);
-        this._toggleButtonState(this.inputList, this.buttonElement);
+        this._toggleButtonState();
       })
     });
-    this._toggleButtonState(this._inputList, this._buttonElement);
+    this._toggleButtonState();
   };
 
   enableValidation(){

@@ -25,44 +25,13 @@ const placeForm = document.querySelector('.popup__form_addPlaceList');
 personName.value = pagePersonName.textContent;
 personMerits.value = pagePersonMerits.textContent;
 
-//Открытие попапов
-const popupOpenButtonPerson = document.querySelector('.person__edit-logo');
-const popupOpenButtonPlace = document.querySelector('.person__add-place-logo');
-const popupEditProfile = document.querySelector('.popup_edit-profile');
-const popupAddPlace = document.querySelector('.popup_add-card');
+//Валидация карточки
+const placeValidatorForm = new FormValidator(allClasses, placeForm);
+placeValidatorForm.enableValidation();
 
-export function openPopup(pop){
-  pop.classList.add('popup_opened');
-};
-
-function openPopupPerson(){
-  personName.value = pagePersonName.textContent;
-  personMerits.value = pagePersonMerits.textContent;
-  openPopup(popupEditProfile);
-}
-popupOpenButtonPerson.addEventListener('click', openPopupPerson);
-popupOpenButtonPlace.addEventListener('click', function(){
-  openPopup(popupAddPlace);
-});
-
-//Закрытие попапов
-const popupCloseButton = document.querySelectorAll('.popup__close-icon');
-const popupCloseButtonArr = Array.from(popupCloseButton);
-
-function closePopup(item){
-  item.classList.remove('popup_opened');
-}
-
-function searchClickPopupClose(evt){
-  const target = evt.target;
-  const popup = target.closest('.popup');
-  return closePopup(popup);
-}
-
-popupCloseButtonArr.forEach((item)=>{
-  item.addEventListener('click',searchClickPopupClose)
-});
-
+//Валидация профиля
+const personValidatorForm = new FormValidator(allClasses, popupEditPersonProfile);
+personValidatorForm.enableValidation();
 
 //Слушатели Esc и Оверлея для всех попапов
 const popupList = document.querySelectorAll('.popup');
@@ -89,7 +58,45 @@ popupListArr.forEach((item)=>{
   item.addEventListener('click', overlayClose);
 });
 
-document.addEventListener('keydown', escClose);
+//Открытие попапов
+const popupOpenButtonPerson = document.querySelector('.person__edit-logo');
+const popupOpenButtonPlace = document.querySelector('.person__add-place-logo');
+const popupEditProfile = document.querySelector('.popup_edit-profile');
+const popupAddPlace = document.querySelector('.popup_add-card');
+
+export function openPopup(pop){
+  pop.classList.add('popup_opened');
+  document.addEventListener('keydown', escClose);
+};
+
+function openPopupPerson(){
+  personName.value = pagePersonName.textContent;
+  personMerits.value = pagePersonMerits.textContent;
+  openPopup(popupEditProfile);
+}
+popupOpenButtonPerson.addEventListener('click', openPopupPerson);
+popupOpenButtonPlace.addEventListener('click', function(){
+  openPopup(popupAddPlace);
+});
+
+//Закрытие попапов
+const popupCloseButton = document.querySelectorAll('.popup__close-icon');
+const popupCloseButtonArr = Array.from(popupCloseButton);
+
+function closePopup(item){
+  item.classList.remove('popup_opened');
+  document.removeEventListener('keydown', escClose);
+}
+
+function searchClickPopupClose(evt){
+  const target = evt.target;
+  const popup = target.closest('.popup');
+  return closePopup(popup);
+}
+
+popupCloseButtonArr.forEach((item)=>{
+  item.addEventListener('click',searchClickPopupClose)
+});
 
 //Добавление карточек
 
@@ -102,8 +109,6 @@ function createCard(item, templateSelector){
 const inputNameForm = placeForm.querySelector('.popup__field_input_place');
 const inputLinkForm = placeForm.querySelector('.popup__field_input_link');
 
-//const inputClear = (element)=>{element.value='';}
-
 function submitAddCardForm(evt){
   evt.preventDefault();
   const inputItem = {
@@ -115,13 +120,9 @@ function submitAddCardForm(evt){
   const newPlace = createCard(inputItem, templateSelector);
   container.prepend(newPlace);
   const targetForm = evt.target.closest('.popup__form');
-  console.log(targetForm);
-  /*
-  const inputList = Array.from(targetForm.querySelectorAll('.popup__field'));
-  inputList.forEach(inputClear);*/
-  
   searchClickPopupClose(evt);
   targetForm.reset();
+  placeValidatorForm.enableValidation();
 }
 
 placeForm.addEventListener('submit', submitAddCardForm);
@@ -140,10 +141,3 @@ initialCards.forEach((item)=>{
   container.append(currentCard);
 })
 
-//Валидация карточки
-const placeValidatorForm = new FormValidator(allClasses, placeForm);
-placeValidatorForm.enableValidation();
-
-//Валидация профиля
-const personValidatorForm = new FormValidator(allClasses, popupEditPersonProfile);
-personValidatorForm.enableValidation();
