@@ -50,9 +50,9 @@
 		<form name='editPersonProfile' class='popup__form popup__form_editPersonProfile' novalidate>
 			<div class='popup__container'>
 				<h2 class='popup__title'>Редактировать профиль</h2>
-				<input type='text' name='personName' id='person-name' form='editPersonProfile' class='popup__field popup__field_input_person' placeholder='Имя' required minlength='2' maxlength='40'>
+				<input type='text' name='personName' id='person-name' class='popup__field popup__field_input_person' placeholder='Имя' required minlength='2' maxlength='40'>
 				<span class='popup__span' id='person-name-error'>Вы пропустили это поле.</span> 
-        <input type='text' name='personMerits' id='person-merits' form='editPersonProfile' class='popup__field popup__field_input_merits' placeholder='Вид деятельности' required minlength='2' maxlength='200'>
+        <input type='text' name='personMerits' id='person-merits' class='popup__field popup__field_input_merits' placeholder='Вид деятельности' required minlength='2' maxlength='200'>
 				<span class='popup__span' id='person-merits-error'>Вы пропустили это поле.</span> 
         <button type='submit' class='popup__addbutton'>Сохранить</button>
 			</div>
@@ -68,9 +68,9 @@
     <form name='editPlaceList' id='myform' class='popup__form popup__form_addPlaceList' novalidate>
       <div class='popup__container'>
         <h2 class='popup__title'>Новое место</h2>
-        <input type='text' name='placeName' id='place-name' form='editPlaceList' class='popup__field popup__field_input_place' placeholder='Название' required minlength='2' maxlength='30'>
+        <input type='text' name='placeName' id='place-name' class='popup__field popup__field_input_place' placeholder='Название' required minlength='2' maxlength='30'>
         <span class='popup__span' id='place-name-error'>Вы пропустили это поле.</span> 
-        <input type='url' name='placeLink' id='place-link' form='editPlaceList' class='popup__field popup__field_input_link' placeholder='Ссылка на картинку' required>
+        <input type='url' name='placeLink' id='place-link' class='popup__field popup__field_input_link' placeholder='Ссылка на картинку' required>
         <span class='popup__span' id='place-link-error'>Вы пропустили это поле.</span> 
         <button type='submit' class='popup__addbutton'>Сохранить</button>
       </div>  
@@ -100,10 +100,7 @@
     </div>
   </template>
 
-  <script src="./scripts/initial-cards.js" type="module"></script>
 	<script src="./scripts/index.js" type="module"></script>
-  <script src="./scripts/Card.js" type="module"></script>
-  <script src="./scripts/FormValidator.js" type="module"></script>
 </body>
 
 </html>

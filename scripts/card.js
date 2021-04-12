@@ -53,7 +53,7 @@ export class Card{
     this._element = this._getTemplate();
     this._setEvenetListeners();
     this._element.querySelector('.place__photo').src = this._link;
-    this._element.querySelector('.place__name').alt = this._name;
+    this._element.querySelector('.place__photo').alt = this._name;
     this._element.querySelector('.place__name').textContent = this._name;
     return this._element;
   }
