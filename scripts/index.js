@@ -121,8 +121,10 @@ function submitAddCardForm(evt){
   container.prepend(newPlace);
   const targetForm = evt.target.closest('.popup__form');
   searchClickPopupClose(evt);
+  inputLinkForm.value = "";
   targetForm.reset();
-  placeValidatorForm.enableValidation();
+  const button = targetForm.querySelector(`${allClasses.submitButtonSelector}`);
+  button.classList.add(`${allClasses.inactiveButtonClass}`)
 }
 
 placeForm.addEventListener('submit', submitAddCardForm);
