@@ -124,7 +124,8 @@ function submitAddCardForm(evt){
   inputLinkForm.value = "";
   targetForm.reset();
   const button = targetForm.querySelector(`${allClasses.submitButtonSelector}`);
-  button.classList.add(`${allClasses.inactiveButtonClass}`)
+  button.classList.add(`${allClasses.inactiveButtonClass}`);
+  button.setAttribute('disabled', true);
 }
 
 placeForm.addEventListener('submit', submitAddCardForm);
